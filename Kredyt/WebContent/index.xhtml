@@ -19,21 +19,31 @@
 		<h:panelGrid id="grid" columns="3" cellpadding="5">
 		
 			<p:outputLabel for="x" value="Kwota kredytu: "/>
-			<p:inputText id="x" value="#{kredytBB.x}" required="true" requiredMessage="Podaj kwote kredytu"/>
+			
+			<p:inputText id="x" value="#{kredytBB.x}" required="true" 
+			requiredMessage="Podaj kwote kredytu" converterMessage="Kwota kredytu musi byc liczba" >
+			<f:validateDoubleRange minimum="1" maximum="9999999"/>
+			</p:inputText>			
 			<p:message for="x" />
 
 			<p:outputLabel for="y" value="Ilosc rat: "/>
-			<p:inputText id="y" value="#{kredytBB.y}" required="true" requiredMessage="Podaj ilosc rat"/>
+			<p:inputText id="y" value="#{kredytBB.y}" required="true"
+			requiredMessage="Podaj ilosc rat" converterMessage="Ilosc rat musi byc liczba">
+			<f:validateDoubleRange minimum="1" maximum="9999999"/>
+			</p:inputText>
 			<p:message for="y" />
 			
 			<p:outputLabel for="z" value="Oprocentowanie: "/>
-			<p:inputText id="z" value="#{kredytBB.z}" required="true" requiredMessage="Podaj oprocentowanie"/>
+			<p:inputText id="z" value="#{kredytBB.z}" required="true"
+			 requiredMessage="Podaj oprocentowanie" converterMessage="Oprocentowanie musi byc liczba">
+			<f:validateDoubleRange minimum="1" maximum="9999999"/>
+			</p:inputText>
 			<p:message for="z" />
 		
 			<p:commandButton value="Oblicz" action="#{kredytBB.calc()}" update="@form"/>
 		</h:panelGrid>
 
-		<p:messages id="msg" />
+		
 		
 	</h:form>
 </p:panel>
